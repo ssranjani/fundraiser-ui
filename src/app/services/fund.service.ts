@@ -11,4 +11,9 @@ export class FundService {
   getFunds(){
     return this.http.get<number>(environment.apiUrl);
   }
+
+  saveFunds(fund:any){
+    return this.http.post(environment.apiUrl, fund);
+  }
+
 }

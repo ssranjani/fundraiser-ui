@@ -12,6 +12,22 @@ export class FundComponent implements OnInit {
   constructor(private service: FundService) { }
 
   ngOnInit(): void {
+    this.loadFundsTotal();
+  }
+
+  submitFund(fund:any){
+    this.service.saveFunds(fund).subscribe({
+      next: ()=>{
+        this.loadFundsTotal();
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    });
+    
+  }
+
+  loadFundsTotal(){
     this.service.getFunds().subscribe({
       next:(data)=> {
         this.amount = data;

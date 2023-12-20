@@ -1,1 +1,22 @@
-<h2>Funds collected so far : {{amount}}</h2>
+<form #fund="ngForm" (ngSubmit)="submitFund(fund.value)" class="row g-3">
+    <div class="navbar-brand">
+        <h2 >Funds collected so far <span class="badge text-bg-success">{{amount | currency:'USD'}}</span></h2>
+        <br>
+    </div>
+    
+    <div class="mb-3 row">
+        <label for="donatedby" class="col-sm-3 col-form-label">Donated By</label>
+        <div class="col-sm-3">
+            <input type="text" name="donatedby" id="donatedby" class="form-control" ngModel >
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="amount" class="col-sm-3 col-form-label">Donation Amount ($)</label>
+        <div class="col-sm-3">
+            <input type="text" name="amount" id="amount" class="form-control" ngModel >
+        </div>
+    </div>
+    <div class="mb-3 row">
+            <button type="submit" name="submit" class="btn btn-primary btn-lg">Donate</button>
+    </div>
+</form>
